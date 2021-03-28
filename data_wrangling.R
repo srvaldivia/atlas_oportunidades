@@ -31,15 +31,11 @@ entidades <- read_sf("shapes_raw/INE.gdb", "Variables_C17_Entidad", quiet = FALS
 #                                      na = "[NULL]")
 
 
-mineduc_2020 <- read_excel("data_raw/mineduc_2020.xlsx") %>% 
-  janitor::clean_names() %>% 
-  mutate(direccion_full = paste(direccion, numero, sep = ", "))
+# mineduc_2020 <- read_excel("data_raw/mineduc_2020.xlsx") %>% 
+#   janitor::clean_names() %>% 
+#   mutate(direccion_full = paste(direccion, numero, sep = ", "))
 
 
-
-
-
-list.files("data_raw")
 
 
 # skimr::skim(geo_psu_2009)
@@ -314,7 +310,7 @@ geo_psu_2009_SJ %>%
   arrange((n)) %>% 
   mutate(criterio = case_when(n > 20 ~ "Sí",
                               TRUE ~ "No")) %>% 
-  write_csv2("conteo_zonas.csv")
+  # write_csv2("conteo_zonas.csv")
   # filter(criterio == "No") %>% 
   # nrow()
   
@@ -336,7 +332,7 @@ geo_psu_2009_SJ %>%
   arrange(desc(n)) %>% 
   mutate(criterio = case_when(n > 20 ~ "Sí",
                               TRUE ~ "No")) %>%
-  write_csv2("conteo_manzanas.csv")
+  # write_csv2("conteo_manzanas.csv")
   # filter(criterio == "No") %>% 
   # nrow()
   
